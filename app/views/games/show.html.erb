@@ -1,1 +1,16 @@
-<h1>Welcome to Game <%=game.id %>!</h1> 
+<h1>Welcome to Game <%=@game.id %>!</h1> 
+
+Players:
+<ul>
+  <% @hands.each do |hand| %>
+    <li><%= link_to hand.player.username, player_path(hand.player) %> </li>
+  <% end %>
+</ul>
+
+
+Cards:
+<ul>
+  <% @hands.each do |hand| %>
+    <li><%= link_to hand.card.name, card_path(hand.card) %> </li>
+  <% end %>
+</ul>
