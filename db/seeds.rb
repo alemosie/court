@@ -16,6 +16,7 @@ Card.create!(name: "Cardinal", description: "Excommunicates another player")
 Card.create!(name: "Alchemist", description: "Looks at a center card and switches it for another player's card.")
 Card.create!(name: "Fanatic", description: "Only wins if he/she gets the most votes at the end.")
 
+Card.all.each{|card| Action.create!(card: card)}
 
 Player.create!(username: "Kristin")
 Player.create!(username: "Alex M.")
