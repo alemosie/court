@@ -4,7 +4,7 @@ class CreateHands < ActiveRecord::Migration[5.0]
       t.references :game, foreign_key: true
       t.references :player, foreign_key: true
       t.references :card, foreign_key: true
-
+      t.string :ability
       t.timestamps
     end
   end

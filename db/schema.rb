@@ -11,16 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160602195437) do
+ActiveRecord::Schema.define(version: 20160530195933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "abilities", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "cards", force: :cascade do |t|
     t.string   "name"
@@ -35,17 +29,11 @@ ActiveRecord::Schema.define(version: 20160602195437) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "hand_abilities", force: :cascade do |t|
-    t.integer "hand_id"
-    t.integer "ability_id"
-    t.index ["ability_id"], name: "index_hand_abilities_on_ability_id", using: :btree
-    t.index ["hand_id"], name: "index_hand_abilities_on_hand_id", using: :btree
-  end
-
   create_table "hands", force: :cascade do |t|
     t.integer  "game_id"
     t.integer  "player_id"
     t.integer  "card_id"
+    t.string   "ability"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["card_id"], name: "index_hands_on_card_id", using: :btree
@@ -59,8 +47,6 @@ ActiveRecord::Schema.define(version: 20160602195437) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "hand_abilities", "abilities"
-  add_foreign_key "hand_abilities", "hands"
   add_foreign_key "hands", "cards"
   add_foreign_key "hands", "games"
   add_foreign_key "hands", "players"
