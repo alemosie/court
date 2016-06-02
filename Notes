@@ -1,0 +1,9 @@
+- When we create a game
+  - Already created
+    - 5 players("Balex", "Kristin", "Mike", "JJ", "Galex")
+    - 8 cards("")
+    - 8 actions("")
+  - Create game
+    - Game.create
+  - Create 8 hands
+    - 

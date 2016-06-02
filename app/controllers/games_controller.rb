@@ -4,6 +4,16 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @hands = @game.hands
   end
+
+  def index
+    @games = Game.all
+  end
+
+  def new
+    
+  end
+
+  
   
 
 end
